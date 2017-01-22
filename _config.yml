@@ -35,3 +35,6 @@ github_username:  jayeeeeee
   
 # Custom vars
 version:             1.0.0
+
+# Google services
+google_analytics: UA-90711514-1
