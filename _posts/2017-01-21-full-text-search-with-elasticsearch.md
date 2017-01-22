@@ -141,9 +141,9 @@ Traditoinal Chinese Full-text search
 	
 	"pretty" parameter, tells Elasticsearch to return pretty-printed JSON results.
 	
-### Ref
+### Reference
 1.	[Elastic full-text search][elastic-full-text-search]
 2.	[Logstash jdbc example][logstash-jdbc-example]
 
-[logstash-jdbc-example]:	"https://www.elastic.co/blog/logstash-jdbc-input-plugin"							"Logstash-jdbc-example"
 [elastic-full-text-search]:	https://www.elastic.co/guide/en/elasticsearch/guide/current/full-text-search.html	"elastic-full-text-search"
+[logstash-jdbc-example]:	https://www.elastic.co/blog/logstash-jdbc-input-plugin							"Logstash-jdbc-example"
