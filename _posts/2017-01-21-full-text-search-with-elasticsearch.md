@@ -45,8 +45,8 @@ Traditoinal Chinese Full-text search
 		
 		>	bin/elasticsearch-plugin install analysis-smartcn
 
-	[mariadb-download]:	https://mariadb.org/download/	"MariaDB-Download"
-	[elasticseach-download]:	https://www.elastic.co/downloads/elasticsearch	"Elasticsearch-Download"
+[mariadb-download]:	https://mariadb.org/download/	"MariaDB-Download"
+[elasticseach-download]:	https://www.elastic.co/downloads/elasticsearch	"Elasticsearch-Download"
 	
 3. Logstash
 	-	Download and extract [Logstash][logstash-download]
@@ -77,7 +77,7 @@ Traditoinal Chinese Full-text search
 		
 		Install failed -> feel depressed:( -> check plugin-list -> already exist -> ...
 		
-	[logstash-download]:	https://www.elastic.co/downloads/logstash	"Logstash-Download"
+[logstash-download]:	https://www.elastic.co/downloads/logstash	"Logstash-Download"
 	
 ##### Configuration
 -	Logstash
