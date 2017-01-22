@@ -26,6 +26,7 @@ Traditoinal Chinese Full-text search
 -	Java8
 
 ###	Step by Step
+
 ##### Installation
 1.	Relational Database
 	-	Download and Install [MariaDB][mariadb-download]
