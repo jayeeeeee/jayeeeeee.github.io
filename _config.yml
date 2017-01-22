@@ -15,8 +15,9 @@
 # in the templates via {{ site.myvariable }}.
 
 # Build settings
-markdown: kramdown
-theme: jekyll-theme-cayman
+markdown: kramdow
+#theme: minimal
+
 gems:
   - jekyll-feed
 exclude:
