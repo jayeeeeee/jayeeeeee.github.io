@@ -119,7 +119,7 @@ Traditoinal Chinese Full-text search
 				}
 			}
 	
-	[mariadb-connector]:	https://downloads.mariadb.org/connector-java/	"MariaDB-Connector"
+[mariadb-connector]:	https://downloads.mariadb.org/connector-java/	"MariaDB-Connector"
 	
 ##### Run
 1.	Start Elasticsearch
