@@ -95,8 +95,8 @@ Install AJDT for Eclipse
 2.	Run as -> [AspectJ/Java Application]
 
 ### Reference
--	[The AspectJTM Programming Guide][aspectj-guide]
--	[The AspectJTM 5 Development Kit Developer's Notebook][aspectj5] - annotation-based development style
+-	[The AspectJ Programming Guide][aspectj-guide]
+-	[The AspectJ 5 Development Kit Developer's Notebook][aspectj5] - annotation-based development style
 -	[Some Example Pointcuts][pointcut-example]
 
 [aspectj-guide]: https://eclipse.org/aspectj/doc/released/progguide/
