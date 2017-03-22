@@ -150,7 +150,7 @@ abbr[title] {
 /* Code */
 code,
 pre {
-  font-family: Menlo, Monaco, "Courier New", monospace;
+  font-family: Lucida Console, Menlo, Monaco, "Courier New", monospace;
 }
 code {
   padding: .25em .5em;
@@ -168,9 +168,9 @@ pre {
   line-height: 1.4;
   white-space: pre;
   white-space: pre-wrap;
-  word-break: break-all;
+  /*word-break: break-all;*/
   word-wrap: break-word;
-  background-color: #f9f9f9;
+  background-color: #f9f9f9;  
 }
 pre code {
   padding: 0;
@@ -186,6 +186,10 @@ pre code {
 }
 .highlight pre {
   margin-bottom: 0;
+}
+div [class*="language-"] pre{
+	white-space: pre;
+	overflow: auto;
 }
 
 /* Gist via GitHub Pages */
