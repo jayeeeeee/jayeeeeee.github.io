@@ -19,6 +19,24 @@ Implement AOP in general Java project with AspectJ.
 [eclipse]:	https://eclipse.org/
 [ajdt]:	http://www.eclipse.org/ajdt/
 
+### AspectJ Basic Concept
+
+>	"Pointcut" pick out "JoinPoint" then execute "Advice".
+
+1.	[JoinPoint][joinpoint]
+	-	Many kinds of [JoinPoints][kinds-of-joinpoint]
+2.	[Pointcut][pointcut]
+	-	[Pointcuts][pointcut-define] provided by AspectJ.
+3.	[Advice][advice]
+	-	[Advices][advices] to use.
+
+[joinpoint]: https://eclipse.org/aspectj/doc/released/progguide/starting-aspectj.html#the-dynamic-join-point-model
+[kinds-of-joinpoint]: https://eclipse.org/aspectj/doc/released/progguide/semantics-joinPoints.html
+[pointcut]: https://eclipse.org/aspectj/doc/released/progguide/starting-aspectj.html#pointcuts
+[pointcut-define]: https://eclipse.org/aspectj/doc/released/progguide/semantics-pointcuts.html
+[advice]: https://eclipse.org/aspectj/doc/released/progguide/starting-aspectj.html#advice
+[advices]: https://eclipse.org/aspectj/doc/released/progguide/starting-aspectj.html#advices
+
 ### Step by step
 #### Installation	
 1.	Pick a **Update Site URL** of AJDT from download page: [AJDT-Download][ajdt-download]
@@ -44,24 +62,6 @@ Implement AOP in general Java project with AspectJ.
 	[File] -> [New] -> [Other] -> [AspectJ Project].
 		
 [ajdt-download]: http://www.eclipse.org/ajdt/downloads/	
-
-#### AspectJ Basic Concept
-
->	"Pointcut" pick out "JoinPoint" then execute "Advice".
-
-1.	[JoinPoint][joinpoint]
-	-	Many kinds of [JoinPoints][kinds-of-joinpoint]
-2.	[Pointcut][pointcut]
-	-	[Pointcuts][pointcut-define] provided by AspectJ.
-3.	[Advice][advice]
-	-	[Advices][advices] to use.
-
-[joinpoint]: https://eclipse.org/aspectj/doc/released/progguide/starting-aspectj.html#the-dynamic-join-point-model
-[kinds-of-joinpoint]: https://eclipse.org/aspectj/doc/released/progguide/semantics-joinPoints.html
-[pointcut]: https://eclipse.org/aspectj/doc/released/progguide/starting-aspectj.html#pointcuts
-[pointcut-define]: https://eclipse.org/aspectj/doc/released/progguide/semantics-pointcuts.html
-[advice]: https://eclipse.org/aspectj/doc/released/progguide/starting-aspectj.html#advice
-[advices]: https://eclipse.org/aspectj/doc/released/progguide/starting-aspectj.html#advices
 
 #### Development
 -	Simple example below:
