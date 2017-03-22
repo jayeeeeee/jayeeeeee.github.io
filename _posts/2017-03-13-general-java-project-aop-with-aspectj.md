@@ -75,12 +75,12 @@ Implement AOP in general Java project with AspectJ.
 
 		@Before("doSomething()") //...(4)
 		public final void beforeDo(JoinPoint joinpoint){ //...(5)
-			System.out.println("@Before doSomething(): {}", joinpoint.getSourceLocation());
+			System.out.println("@Before doSomething(): " + joinpoint.getSourceLocation());
 		}
 		
 		@After("doSomething()") //...(6)
 		public final void afterDo(JoinPoint joinpoint){
-			System.out.println("@After doSomething(): {}", joinpoint.getSourceLocation());
+			System.out.println("@After doSomething(): " + joinpoint.getSourceLocation());
 		}
 			
 	}
