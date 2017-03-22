@@ -32,6 +32,8 @@ Build a Client/Server service in Java using Protocol Buffers.
 
 ### Step by step
 Using gRPC basic **hello world example** as tutorial.
+
+#### Configuration
 1.	Define gRPC services and Protocol Buffers
 	-	[helloworld.proto][hello-world-proto]
 		
@@ -163,9 +165,8 @@ Using gRPC basic **hello world example** as tutorial.
 	[buildscript]:	https://docs.gradle.org/current/userguide/organizing_build_logic.html#sec:build_script_external_dependencies	"build_script_external_dependencies"	
 	
 		
-3. 	Take a break!
-
-	Now, files will like below:
+#### Take a break!
+-	Now, files will like below:
 	
 		//if (helloworld.proto: option java_multiple_files = true);
 		
@@ -177,27 +178,28 @@ Using gRPC basic **hello world example** as tutorial.
 		|                |-grpc
 		|                     |-examples
 		|                             |-helloworld
-		|                                  |-GreeterGrpc.java
-		|                                  |-HelloReply.java
-		|                                  |-HelloReplyOrBuilder.java
-		|                                  |-HelloRequest.java
-		|                                  |-HelloRequestOrBuilder.java
-		|                                  |-HelloWorldProto.java
+		|                                 |-GreeterGrpc.java
+		|                                 |-HelloReply.java
+		|                                 |-HelloReplyOrBuilder.java
+		|                                 |-HelloRequest.java
+		|                                 |-HelloRequestOrBuilder.java
+		|                                 |-HelloWorldProto.java
 		|    
 		|-proto
 		|     |-helloworld.proto
-	
-4. 	Creating Server
+
+#### Development
+1. 	Creating Server
 
 	[HelloWorldServer.java][helloworld_server.java]
 	
 	[helloworld_server.java]: https://github.com/grpc/grpc-java/blob/master/examples/src/main/java/io/grpc/examples/helloworld/HelloWorldServer.java	"HelloWorldServer.java" 
 	
-5.	Creating Client	
+2.	Creating Client	
 
 	[HelloWorldClient.java][helloworld_client.java]
 	
 	[helloworld_client.java]: https://github.com/grpc/grpc-java/blob/master/examples/src/main/java/io/grpc/examples/helloworld/HelloWorldClient.java	"HelloWorldClient.java" 
 	
-
-6.	Run it!
+#### Run
+-	Run it!

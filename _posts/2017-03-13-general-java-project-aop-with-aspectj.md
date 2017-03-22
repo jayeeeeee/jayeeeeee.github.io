@@ -19,9 +19,8 @@ Implement AOP in general Java project with AspectJ.
 [eclipse]:	https://eclipse.org/
 [ajdt]:	http://www.eclipse.org/ajdt/
 
-### Configuration
-Install AJDT for Eclipse
-	
+### Step by step
+#### Installation	
 1.	Pick a **Update Site URL** of AJDT from download page: [AJDT-Download][ajdt-download]
 
 		e.g.
@@ -35,18 +34,18 @@ Install AJDT for Eclipse
 	
 	-> Check **AspectJ Development Tool(Required)** -> [Finish]
 
-3.	Create AspectJ Project
-	-	If ( Java project **Exist** ):
-	
-		Right Click on Project -> [Configuration] -> [Convert to AspectJ Project].
+#### Configuration
+-	If ( Java project **Exist** ):
 
-	-	Else ( Create **New** AspectJ ):
-	
-		[File] -> [New] -> [Other] -> [AspectJ Project].
+	Right Click on Project -> [Configuration] -> [Convert to AspectJ Project].
+
+-	Else ( Create **New** AspectJ ):
+
+	[File] -> [New] -> [Other] -> [AspectJ Project].
 		
 [ajdt-download]: http://www.eclipse.org/ajdt/downloads/	
 
-### AspectJ Basic Concept
+#### AspectJ Basic Concept
 
 >	"Pointcut" pick out "JoinPoint" then execute "Advice".
 
@@ -62,10 +61,11 @@ Install AJDT for Eclipse
 [pointcut]: https://eclipse.org/aspectj/doc/released/progguide/starting-aspectj.html#pointcuts
 [pointcut-define]: https://eclipse.org/aspectj/doc/released/progguide/semantics-pointcuts.html
 [advice]: https://eclipse.org/aspectj/doc/released/progguide/starting-aspectj.html#advice
-[advices]: https://eclipse.org/aspectj/doc/released/progguide/starting-aspectj.html#advice
+[advices]: https://eclipse.org/aspectj/doc/released/progguide/starting-aspectj.html#advices
 
-### Step by step
-1. Simple example below:
+#### Development
+-	Simple example below:
+
 	```java
 	@Aspect //...(1)
 	public class ServiceAspect {
@@ -91,8 +91,9 @@ Install AJDT for Eclipse
 	-	(4): Execute **Advice**-"*Before*" JoinPoint named `doSomething()`.
 	-	(5): Inject JoinPoint through parameter so that we can call `joinpoint.getSourceLocation()`.
 	-	(6): Execute **Advice**-"*After*" JoinPoint named `doSomething()`.
-	
-2.	Run as -> [AspectJ/Java Application]
+
+#### Run
+-	Run as -> [AspectJ/Java Application]
 
 ### Reference
 -	[The AspectJ Programming Guide][aspectj-guide]
