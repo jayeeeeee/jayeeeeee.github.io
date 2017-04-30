@@ -13,28 +13,23 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
+title: Jayeeeeee's Note
+#email: your-email@domain.com
+description: > # this means to ignore newlines until "baseurl:"
+  Hello World.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+#twitter_username: jekyllrb
+github_username:  jayeeeeee
 
 # Build settings
 markdown: kramdown
 theme: minima
-
 gems:
   - jekyll-feed
 exclude:
   - Gemfile
   - Gemfile.lock
-
-# Setup
-title: Jayeeeeee Notes
-email: ""
-description: Hello World
-baseurl: "" # the subpath of your site, e.g. /blog
-url: https://jayeeeeee.github.io/ # the base hostname & protocol for your site, e.g. http://example.com
-#twitter_username: jekyllrb
-github_username:  jayeeeeee
-  
-# Custom vars
-version:             1.0.0
 
 # Google services
 google_analytics: UA-90711514-1
