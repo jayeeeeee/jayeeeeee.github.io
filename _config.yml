@@ -30,6 +30,7 @@ gems:
 exclude:
   - Gemfile
   - Gemfile.lock
+permalink: /:title/
 
 # Google services
 google_analytics: UA-90711514-1
