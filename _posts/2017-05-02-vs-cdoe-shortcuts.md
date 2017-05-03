@@ -10,13 +10,14 @@ Windows 10
 ### Shortcuts
 
 #### Basic Editing
--   [ Ctrl ] + [ F2 ] : Select all occurrences of current word
+    [ Ctrl ] + [ F2 ] : Select all occurrences of current word
+    [ Shift ] + [ Alt ] + [ F ] : Auto format
 
 #### Rich Languages Editing
--   [ Shift ] + [ Alt ] + [ F ] : Auto format
+    [ Shift ] + [ Alt ] + [ F ] : Auto format
 
 #### Display
--   [ Ctrl ] + [ Shift ] + [ V ] : Preview markdown
+    [ Ctrl ] + [ Shift ] + [ V ] : Preview markdown
 
 ### Reference
 -   [Visual Studio Code - Default Keyboard Shortcuts](https://code.visualstudio.com/docs/getstarted/keybindings#_default-keyboard-shortcuts)
