@@ -11,7 +11,6 @@ Windows 10
 
 #### Basic Editing
     [ Ctrl ] + [ F2 ] : Select all occurrences of current word
-    [ Shift ] + [ Alt ] + [ F ] : Auto format
 
 #### Rich Languages Editing
     [ Shift ] + [ Alt ] + [ F ] : Auto format
