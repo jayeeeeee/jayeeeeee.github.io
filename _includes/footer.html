@@ -1,12 +1,9 @@
 <footer class="ui container center aligned">
   <div class="ui divider"></div>
 
-  <a href="{{ "/" | relative_url }}">
-    <h2 >{{ site.title | escape }}</h2>
-  </a>
-  
-  
-  <a href="https://github.com/{{ site.github_username| cgi_escape | escape }}">
-    <img src="/assets/GitHub-Mark-32px.png">
-  </a>
+  <P>
+    <a href="https://github.com/{{ site.github_username| cgi_escape | escape }}">
+      <img class="footer-github-logo" src="/assets/github.svg">
+    </a>
+  </P>
 </footer>

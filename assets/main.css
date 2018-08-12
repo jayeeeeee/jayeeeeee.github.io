@@ -1,4 +1,12 @@
 .site-header-title {
-  font-size: 7rem; }
+  font-size: 12vh; }
+
+.site-header-title a,
+.site-header-title a:hover {
+  color: black; }
+
+.footer-github-logo {
+  width: 32px;
+  margin: 15px; }
 
 /*# sourceMappingURL=main.css.map */
