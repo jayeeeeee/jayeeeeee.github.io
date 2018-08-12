@@ -1,6 +1,6 @@
 <header>
   <div class="ui container center aligned">
-    <h1 rel="author" style="font-size: 7vw" href="{{ "/" | relative_url }}">
+    <h1 class="site-header-title" rel="author" href="{{ "/" | relative_url }}">
       {%- assign default_paths = site.pages | map: "path" -%}
       {%- assign page_paths = site.header_pages | default: default_paths -%}
       {{ site.title | escape }}
