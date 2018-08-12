@@ -1,0 +1,14 @@
+.highlight pre{ 
+  overflow-x: auto; 
+  padding: 15px;
+  border: 1px solid lightgray;
+}
+
+/**
+ * Blockquotes
+ */
+ blockquote {
+    color: gray;
+    border-left: 4px solid lightgray;
+    padding-left: 4px;
+  }
