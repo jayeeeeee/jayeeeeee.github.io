@@ -1,5 +1,6 @@
 .site-header-title {
-  font-size: 7vw; }
+  font-size: 50px;
+  padding: 50px; }
 
 .site-header-title a,
 .site-header-title a:hover {
