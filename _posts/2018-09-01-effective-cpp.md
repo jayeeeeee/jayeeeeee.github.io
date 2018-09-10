@@ -835,7 +835,7 @@ template | implicit           | 具現化 + function overload resolution
   - Base 的 new 裡要判斷 => `(size != sizeof(Base))`
   - `return ::operator new(size)` <= 呼叫標準 operator new
 
-### 52. Write placement delete if tou write placement new
+### 52. Write placement delete if you write placement new
 
 - e.g. `Widget* pw = new Widget;`
   - 先 operator new 再 Widget default constructor
