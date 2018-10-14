@@ -134,7 +134,7 @@ docker stack rm [app_name]
 - "A stack is a group of interrelated services that share dependencies, and can be orchestrated and scaled together."
 - Add services to stack in `docker-compose.yml`
 
-## Conlustion
+## Conclusion
 
 ### Container
 
@@ -204,3 +204,7 @@ docker stack rm [app_name]
 |              Swarm              |
 +---------------------------------+
 ```
+
+## Reference
+
+- [Docker Docs - Get started with Docker]( https://docs.docker.com/get-started/)
