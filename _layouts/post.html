@@ -1,29 +1,33 @@
 ---
 layout: default
 ---
-<article itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="ui text container vertical segment">
-    <header>
-      <time class="ui container right aligned" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-         {{ page.date | date: "%Y.%m.%d" }}
-      </time>
+<div class="container-fluid">
+    <div id="post-container" class="container">
+        <div class="row">
+            <div id="post-content" class="col-lg-10 block-container post-block" data-spy="scroll"
+                data-target="#markdown-toc" data-offset="15">
 
-      <h1 itemprop="name headline">{{ page.title | escape }}</h1>
-      <p>
-        {%- if page.author -%}
-          • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>
-        {%- endif -%}
-      </p>
-    </header>
+                <div id="post-header">
+                    <div>
+                        {% if page.title %}
+                        <h1 class="post-title">[ {{ page.title }} / {{ page.date | date: "%Y.%m.%d" }} ]</h1>
+                        {% endif %}
+                    </div>
+                    <div id="post-header-category-tag">
+                        {% assign categories = page.categories[0] | split: " " %}
+                        <span>@{{ categories | join: "-" | upcase }}</span>
 
-    <div itemprop="articleBody">
-      {{ content }}
+                        {% for tag in page.tags %}
+                        <spna>#{{tag}}</spna>
+                        {% endfor %}
+                    </div>
+                </div>
+                {{ content }}
+            </div>
+
+            <div id="markdown-toc-container" class="col-lg-2 block-container d-none d-lg-block d-print-block">
+                {% include toc.html html=content id="markdown-toc" class="list-group" anchor_class="list-group-item.list-group-item-action.toc-list-item" %}
+            </div>
+        </div>
     </div>
-
-    {%- if site.disqus.shortname -%}
-      {%- include disqus_comments.html -%}
-    {%- endif -%}
-
-    <a href="{{ page.url | relative_url }}" hidden></a>
-  </div>
-</article>
+</div>

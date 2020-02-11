@@ -1,15 +1,17 @@
-.highlight pre{ 
-  color:  #f8f8f2;
-  overflow-x: auto; 
-  padding: 15px;
-  border: 1px solid lightgray;
+.highlight pre {
+  color: $font-color-light;
+  overflow-x: auto;
+  padding: 25px;
+  line-height: 25px;
 }
 
-/**
- * Blockquotes
- */
- blockquote {
-    color: #f8f8f2;
-    border-left: 4px solid lightgray;
-    padding-left: 4px;
-  }
+blockquote {
+  border-left: 3px solid $theme-color;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+blockquote .highlight pre {
+  background-color: initial;
+  color: $font-color-dark;
+}
