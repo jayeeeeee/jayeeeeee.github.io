@@ -30,7 +30,7 @@ docker image ls
 - "A container is launched by running an image."
 - "A container runs natively on Linux and shares the kernel of the host machine with other containers."
 
-        多個 container 在同一個 kernel
+    > 多個 container 在同一個 kernel
 
 ```bash
 # 列出所有正在運行的 container
@@ -61,12 +61,12 @@ docker container stop [container_id]
 - "Services are really just “containers in production.”"
 - To define, run, and scale services
 
-        在 `docker-compose.yml` file 裡可設定多個 service
+    > 在 `docker-compose.yml` file 裡可設定多個 service
 
 - "A single container running in a service is called a task."
 - "Docker performs an in-place update, no need to tear the stack down first or kill any containers."
 
-        改完 `docker-compose.yml` 後重新執行一次 Deploy service 的指令
+    > 改完 `docker-compose.yml` 後重新執行一次 Deploy service 的指令
 
 ```bash
 # 使主機成為一個 swarm
@@ -96,7 +96,7 @@ docker swarm leave --force
 - "Multi-container, multi-machine applications are made possible by joining multiple machines into a “Dockerized” cluster called a swarm."
 - "A swarm is a group of machines that are running Docker and joined into a cluster."
 
-        多台主機 (physical or virtual) 組成 swarm cluster
+    > 多台主機 (physical or virtual) 組成 swarm cluster
 
 - "Swarm managers are the only machines in a swarm that can execute your commands, or authorize other machines to join the swarm as workers."
 

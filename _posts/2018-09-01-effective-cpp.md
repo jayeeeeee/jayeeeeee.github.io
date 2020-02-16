@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Effective C++"
-category: reading
+category: C++
 ---
 
 Effective C++ 3/e
@@ -103,7 +103,7 @@ Effective C++ 3/e
 
 - 順序 : Base constructor -> Derived constructor
 
-      當 Derived class instance 建立時會先呼叫 Base class 的 virtual function 而造成問題
+  > 當 Derived class instance 建立時會先呼叫 Base class 的 virtual function 而造成問題
 
 - **不要**在 Base constructor 呼叫有 call virtual function 的 non-virtual 自訂義 Init() function
 
@@ -313,6 +313,7 @@ const Rational operator*(const Rational& lhs, const Rational& rhs)  ...(2)
 
 - 範例
   - Class using pimpl
+
     ```cpp
     // 官方範例
     namespace WidgetStuff
@@ -351,6 +352,7 @@ const Rational operator*(const Rational& lhs, const Rational& rhs)  ...(2)
     - (4) : "針對 T 是 Widget" 的特化版本, 以防仍不小心使用 std::swap 則會使用此特化版本
 
   - Class template
+
     ```cpp
     // 官方範例
     namespace WidgetStuff
@@ -685,6 +687,7 @@ template | implicit           | 具現化 + function overload resolution
     (Class template 不依賴 template 引數推導)
 
     e.g.
+
     ```cpp
     // 官方範例
     template<typename T>
@@ -743,6 +746,7 @@ template | implicit           | 具現化 + function overload resolution
   - (2) : 以 iterator_category 代表 IterT::iterator_category
   - (3) : partial specialization, 因 IterT* 行為即為 random_access_iterator_tag
   - 使用範例
+
     ```cpp
     // STL list iterator
     template< ... >
@@ -759,8 +763,10 @@ template | implicit           | 具現化 + function overload resolution
     // get information
     iterator_traits<list<int>::iterator_category>::iterator_category tag;
     ```
+
     - `iterator_traits<list<int>::iterator_category>::iterator_category tag;` 等價於 `bidirectional_iterator_tag tag;`
     - 分析上述(2)並帶入list\<int\>範例
+
       ```cpp
       template<typename list<int>::iterator_category>
       struct iterator_traits
@@ -769,6 +775,7 @@ template | implicit           | 具現化 + function overload resolution
         ...
       }
       ```
+
       - (4) : 即以 iterator_category 代表 list\<int\>::iterator_category 的 typedef (而 list\<int\>::iterator_category 的 typedef 為bidirectional_iterator_tag) => typedef 的 typedef
 
 - 為 build-in type 定義偏特化 template

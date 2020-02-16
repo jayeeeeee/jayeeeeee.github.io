@@ -3,203 +3,206 @@ layout: post
 title:  "gRPC in Java"
 date:   2017-03-10 11:35:10 +0800
 categories: java
+tags: grpc
 ---
-### Goal
+## Goal
+
 Build a Client/Server service in Java using Protocol Buffers.
 
-### Technique
-1.	[gRPC][grpc]
-2.	[Protocol Buffers][protobuf]
-3.	[Gradle][gradle]
-	-	[grpc/grpc-java][grpc-java]
-	-	[google/protobuf-gradle-plugin][protobuf-gradle-plugin]
+## Technique
 
-[grpc]:	http://www.grpc.io/docs/guides/										"gRPC Guides"
-[protobuf]:	https://developers.google.com/protocol-buffers/docs/overview	"Protocol Buffers Developer Guide"
-[gradle]: https://gradle.org/												"Gradle"
-[grpc-java]: https://github.com/grpc/grpc-java								"grpc-java"
-[protobuf-gradle-plugin]: https://github.com/google/protobuf-gradle-plugin	"protobuf-gradle-plugin"
+1. [gRPC][grpc]
+2. [Protocol Buffers][protobuf]
+3. [Gradle][gradle]
 
-### What is RPC?
+    - [grpc/grpc-java][grpc-java]
+    - [google/protobuf-gradle-plugin][protobuf-gradle-plugin]
 
->	Client execute a procedure as local, but call Server to do the procedure behind.
+    [grpc]: http://www.grpc.io/docs/guides/ "gRPC Guides"
+    [protobuf]: https://developers.google.com/protocol-buffers/docs/overview "Protocol Buffers Developer Guide"
+    [gradle]: https://gradle.org/ "Gradle"
+    [grpc-java]: https://github.com/grpc/grpc-java "grpc-java"
+    [protobuf-gradle-plugin]: https://github.com/google/protobuf-gradle-plugin "protobuf-gradle-plugin"
 
--	RPC - [Remote Procedure Call][wikipedia-rpc]
+## What is RPC?
 
->	Client-> Client.procedure <-> Server <-> Server.procedure
+> Client execute a procedure as local, but call Server to do the procedure behind.
 
-[wikipedia-rpc]: https://en.wikipedia.org/wiki/Remote_procedure_call		"Wikipedia - RPC"
+RPC - [Remote Procedure Call][wikipedia-rpc]
 
-### Step by step
+> Client-> Client.procedure <-> Server <-> Server.procedure
+
+[wikipedia-rpc]: https://en.wikipedia.org/wiki/Remote_procedure_call "Wikipedia - RPC"
+
+## Step by step
+
 Using gRPC basic **hello world example** as tutorial.
 
-#### Configuration
-1.	Define gRPC services and Protocol Buffers
-	-	[helloworld.proto][hello-world-proto]
-		
-		-	(Optional) Edit `option java_package = "...";` inside the proto. 
-		-	(Optional) Edit `option java_multiple_files = false;` inside the proto.	
-		-	Place `helloworld.proto` at anywhere.
+### Configuration
 
-				e.g.
-				.JavaProject
-				|-proto
-				|     |-helloworld.proto
-				|     |-*.proto
+1. Define gRPC services and Protocol Buffers
+    - [helloworld.proto][hello-world-proto]
 
-	[hello-world-proto]: https://github.com/grpc/grpc-java/blob/master/examples/src/main/proto/helloworld.proto		"helloworld.proto"
-				
-2.	Configure `build.gradle` to develop gRPC and compile `*.proto`
-	
-	See: [grpc/grpc-java][grpc-java]
+        - (Optional) Edit `option java_package = "...";` inside the proto.
+        - (Optional) Edit `option java_multiple_files = false;` inside the proto.
+        - Place `helloworld.proto` at anywhere.
 
-	```gradle
-	project.ext {
+            ```text
+            e.g.
+            .JavaProject
+            |-proto
+            |     |-helloworld.proto
+            |     |-*.proto
+            ```
 
-		protoSrcDir = './proto' //...(1)
-		protoGeneratedBaseDir = "${projectDir}/src/" //...(2)
+    [hello-world-proto]: https://github.com/grpc/grpc-java/blob/master/examples/src/main/proto/helloworld.proto "helloworld.proto"
 
-	}
+2. Configure `build.gradle` to develop gRPC and compile `*.proto`
 
-	apply plugin: 'java'
-	apply plugin: 'com.google.protobuf'
+    See: [grpc/grpc-java][grpc-java]
 
-	buildscript { //...(3)
+    ```gradle
+    project.ext {
+        protoSrcDir = './proto' //...(1)
+        protoGeneratedBaseDir = "${projectDir}/src/" //...(2)
+    }
 
-		repositories {
-			mavenCentral()
-			maven {
-				url "https://maven.eveoh.nl/content/repositories/releases"
-			}
-		}
-		
-		dependencies {
-			classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.1'
-		}
-		
-	}
+    apply plugin: 'java'
+    apply plugin: 'com.google.protobuf'
 
-	repositories {
+    buildscript { //...(3)  
+        repositories {
+            mavenCentral()
+            maven {
+                url "https://maven.eveoh.nl/content/repositories/releases"
+            }
+        }
 
-		mavenCentral()
-		jcenter()
-		
-	}
+        dependencies {
+            classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.1'
+        }
+    }
 
-	dependencies {	//...(4)
+    repositories {  
+        mavenCentral()
+        jcenter()
+    }
 
-		compile 'io.grpc:grpc-netty:1.1.2'
-		compile 'io.grpc:grpc-protobuf:1.1.2'
-		compile 'io.grpc:grpc-stub:1.1.2'
-		
-	}
+    dependencies {  //...(4)
+        compile 'io.grpc:grpc-netty:1.1.2'
+        compile 'io.grpc:grpc-protobuf:1.1.2'
+        compile 'io.grpc:grpc-stub:1.1.2'
+    }
 
-	sourceSets {
+    sourceSets {
+        main {
+            proto {
+                srcDir protoSrcDir  //...(5)
+            }
+        }
 
-		main {
-			proto {
-				srcDir protoSrcDir	//...(5)
-			}
-		}
-		
-		test {
-			proto {
-				srcDir protoSrcDir	//...(6)
-			}
-		}
-		
-	}
+        test {
+            proto {
+                srcDir protoSrcDir  //...(6)
+            }
+        }
+    }
 
-	protobuf {
+    protobuf {  
+        protoc {
+            artifact = "com.google.protobuf:protoc:3.2.0"
+        }
 
-		protoc {
-			artifact = "com.google.protobuf:protoc:3.2.0"
-		}
+        plugins {
+            grpc {  //...(7)
+            artifact = 'io.grpc:protoc-gen-grpc-java:1.1.2'
+            }
+        }
 
-		plugins {
-			grpc {	//...(7)
-				artifact = 'io.grpc:protoc-gen-grpc-java:1.1.2'
-			}
-		}
-	  
-		generateProtoTasks {
-			all().each { task ->
-				task.plugins {
-					grpc {
-						outputSubDir = 'java' //...(8)
-					}
-				}
-			}
-		}
-		
-		generatedFilesBaseDir = protoGeneratedBaseDir //...(9)
-		
-	}
-	```
-	-	(1): Define `*.proto` source directoty.
-	-	(2): Define `*.proto` compiled files (*.java) directoty. 
-	-	(3): Use external libraries for Gradle, see: [External dependencies for the build script][buildscript]
-	-	(4): Add [grpc-java][grpc-java] dependencies.
-	-	(5): Set `*.proto` source directoty. (Default: "src/main/proto")
-	-	(6): Set `*.proto` source directoty for test. (Default: "src/test/proto")
-	-	(7): Add grpc-plugin to protobuf compiler.
-	-	(8): Set gRPC output Directory.
-		- 	output path: 
-		
-				$protoGeneratedBaseDir/main/$outputSubDir/$java_package/
+        generateProtoTasks {
+            all().each { task ->
+                task.plugins {
+                    grpc {
+                        outputSubDir = 'java' //...(8)
+                    }
+                }
+            }
+        }
 
-			*//"main" path is added by default.*
-				
-		-	**Hint:** grpc-plugin will compile **`service {}`** in `*.proto`
-		
-	-	(9): Set `*.proto` output Directory.
-		-	output path:  
-			
-				$protoGeneratedBaseDir/main/$java_package/
-				
-			*//"main" path is added by default.*
-		
-		-	**Hint:** protobuf compiler will compile **`message {}`** in `*.proto`
+        generatedFilesBaseDir = protoGeneratedBaseDir //...(9)
+    }
+    ```
 
+    - (1): Define `*.proto` source directoty.
+    - (2): Define `*.proto` compiled files (*.java) directoty.
+    - (3): Use external libraries for Gradle, see: [External dependencies for the build script][buildscript]
+    - (4): Add [grpc-java][grpc-java] dependencies.
+    - (5): Set `*.proto` source directoty. (Default: "src/main/proto")
+    - (6): Set `*.proto` source directoty for test. (Default: "src/test/proto")
+    - (7): Add grpc-plugin to protobuf compiler.
+    - (8): Set gRPC output Directory.
+        - output path:
 
-	[buildscript]:	https://docs.gradle.org/current/userguide/organizing_build_logic.html#sec:build_script_external_dependencies	"build_script_external_dependencies"	
-	
-		
-#### Take a break!
--	Now, files will like below:
-	
-		//if (helloworld.proto: option java_multiple_files = true);
-		
-		.
-		|-src
-		|   |-main
-		|        |-java
-		|             |-io
-		|                |-grpc
-		|                     |-examples
-		|                             |-helloworld
-		|                                 |-GreeterGrpc.java
-		|                                 |-HelloReply.java
-		|                                 |-HelloReplyOrBuilder.java
-		|                                 |-HelloRequest.java
-		|                                 |-HelloRequestOrBuilder.java
-		|                                 |-HelloWorldProto.java
-		|    
-		|-proto
-		|     |-helloworld.proto
+            ```text
+            $protoGeneratedBaseDir/main/$outputSubDir/$java_package/
+            ```
 
-#### Development
-1. 	Creating Server
+            *//"main" path is added by default.*
 
-	[HelloWorldServer.java][helloworld_server.java]
-	
-	[helloworld_server.java]: https://github.com/grpc/grpc-java/blob/master/examples/src/main/java/io/grpc/examples/helloworld/HelloWorldServer.java	"HelloWorldServer.java" 
-	
-2.	Creating Client	
+        - **Hint:** grpc-plugin will compile **`service {}`** in `*.proto`
 
-	[HelloWorldClient.java][helloworld_client.java]
-	
-	[helloworld_client.java]: https://github.com/grpc/grpc-java/blob/master/examples/src/main/java/io/grpc/examples/helloworld/HelloWorldClient.java	"HelloWorldClient.java" 
-	
-#### Run
--	Run it!
+    - (9): Set `*.proto` output Directory.
+        - output path:  
+
+            ```text
+            $protoGeneratedBaseDir/main/$java_package/
+            ```
+
+            *//"main" path is added by default.*
+
+        - **Hint:** protobuf compiler will compile **`message {}`** in `*.proto`
+
+    [buildscript]: https://docs.gradle.org/current/userguide/organizing_build_logic.html#sec:build_script_external_dependencies "build_script_external_dependencies"
+
+### Take a break!
+
+- Now, files will like below:
+
+    ```text
+    //if (helloworld.proto: option java_multiple_files = true);
+    .
+    |-src
+    |   |-main
+    |        |-java
+    |             |-io
+    |                |-grpc
+    |                     |-examples
+    |                             |-helloworld
+    |                                 |-GreeterGrpc.java
+    |                                 |-HelloReply.java
+    |                                 |-HelloReplyOrBuilder.java
+    |                                 |-HelloRequest.java
+    |                                 |-HelloRequestOrBuilder.java
+    |                                 |-HelloWorldProto.java
+    |
+    |-proto
+    |   |-helloworld.proto
+    ```
+
+### Development
+
+1. Creating Server
+
+    [HelloWorldServer.java][helloworld_server.java]
+
+    [helloworld_server.java]: https://github.com/grpc/grpc-java/blob/master/examples/src/main/java/io/grpc/examples/helloworld/HelloWorldServer.java "HelloWorldServer.java"
+
+2. Creating Client
+
+    [HelloWorldClient.java][helloworld_client.java]
+
+    [helloworld_client.java]: https://github.com/grpc/grpc-java/blob/master/examples/src/main/java/io/grpc/examples/helloworld/HelloWorldClient.java "HelloWorldClient.java"
+
+### Run
+
+- Run it!
